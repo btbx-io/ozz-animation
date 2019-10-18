@@ -25,6 +25,8 @@ install(TARGETS ozz_animation_fbx DESTINATION lib)
 
 fuse_target("ozz_animation_fbx")
 
+if(ozz_build_tools)
+
 add_executable(fbx2ozz
   fbx2ozz.h
   fbx2ozz.cc
@@ -137,3 +139,5 @@ endforeach()
 add_custom_target(BUILD_DATA ALL
   DEPENDS ${all_outputs}
   VERBATIM)
+
+endif()
