@@ -43,7 +43,7 @@ set(ozz_sample_testing_loops 20 CACHE INT "Number of loops while running sample 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/build-utils/cmake/modules/")
 
 # Detects Fbx SDK, required to build Fbx pipeline.
-if(ozz_build_tools AND ozz_build_fbx)
+if(ozz_build_fbx)
 
   # Select a msvc runtime compatible with ozz_build_msvc_rt_dll
   set(FBX_MSVC_RT_DLL ${ozz_build_msvc_rt_dll})
@@ -56,9 +56,6 @@ if(ozz_build_tools AND ozz_build_fbx)
     message("Fbx SDK not found, FBX tools libraries and samples will be skipped.")
     set(ozz_build_fbx OFF)
   endif()
-else()
-  # Disables fbx if tools are disabled
-  set(ozz_build_fbx OFF)
 endif()
 
 # Include ozz cmake parameters and scripts
